@@ -7,5 +7,8 @@ print("What is your name ?")
 user_name = input()
 print("Hello "+ user_name)
 
-MinNum= int(uniform(1, 99))
+MinNum= randint(0, 20)
+MaxNum = randint(99 + MinNum, 120 )
+
 print(MinNum)
+print(MaxNum)
