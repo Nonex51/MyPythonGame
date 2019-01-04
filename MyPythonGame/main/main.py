@@ -14,7 +14,7 @@ def PlayAgain(play):
 
     if again == "yes" or again =="YES" or again =="y" or again =="Y":         
        main()
-    if again == "no":                     #don'twant to enter in this loop 
+    if again == "no":                    
        play = False
     return play
 
