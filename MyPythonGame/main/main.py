@@ -18,7 +18,13 @@ NumTry = 0
 MaxTry = 10
 
 for NumTry in range(0,MaxTry):
-    UserNum = int(input())              #int() important to compare int between int SecretNum radint()
+    UserNum = int(input()) 
+    try:
+        val = float(UserNum)
+    except ValueError:
+         print("That's not an number!")
+         print("No.. input string is not a float number. It's a string")
+
     if UserNum == SecretNum:
         print("You guessed correctly!")
         break
@@ -27,3 +33,4 @@ for NumTry in range(0,MaxTry):
     NumTry += 1
 print("    ")
 print("You had try " + str(NumTry) + " times")
+
