@@ -3,20 +3,20 @@
 from random import *
 def PlayAgain(play):
     again=str(input("Do you want to play again, type yes or no "))
+    print(again)
     try:
        val = str(again)
+       print (val)
     except ValueError:
         print("That's not response!")
         print("Write Yes or Y or yes or y")
-    if again == "yes" or "YES" or "y" or "Y":
+    print (val)
+
+    if again == "yes" or again =="YES" or again =="y" or again =="Y":         
        main()
-    if again == "no":
+    if again == "no":                     #don'twant to enter in this loop 
        play = False
-       return play
-
-
-
-
+    return play
 
 
 def Intro():
@@ -31,7 +31,6 @@ def Intro():
 
     print("I am thinking of a number between "+ str(MinNum) + " and " + str(MaxNum) + ", care to take a guess?")
     return SecretNum
-
 
 
 def Game(SecretNum):
