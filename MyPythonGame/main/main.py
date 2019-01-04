@@ -12,10 +12,18 @@ MinNum= randint(0, range)
 MaxNum = randint(99 + MinNum, 100 + range )
 SecretNum = randint(MinNum, MaxNum )
 
-""" DEBUG
+#""" DEBUG
 print(MinNum)
 print(MaxNum)
 print(SecretNum)
-"""
+#"""
 
 print("I am thinking of a number between "+ str(MinNum) + " and " + str(MaxNum) + ", care to take a guess?")
+UserNum = int(input())
+
+print(UserNum)
+
+if UserNum == SecretNum:
+    print("You guessed correctly!")
+else:
+    print("You guessed wrong, sorry!")
