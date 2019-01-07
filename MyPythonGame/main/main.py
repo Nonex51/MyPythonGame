@@ -16,27 +16,21 @@ def CompareValidGuess(SecretNum,val,win):
         return 
      else:
         print("You guessed wrong, sorry!")
-        return
-    
-    
+        return    
 
 def PlayAgain(play):
     again=str(input("Do you want to play again, put yes or no "))
     print(again)
     try:
-       val = str(again)
-       
+       val = str(again)  
     except ValueError:
         print("That's not response!")
         print("Write Yes or Y or yes or y")
-    
-
     if again == "yes" or again =="YES" or again =="y" or again =="Y":         
-       main()
+       InGame()
     if again == "no":                    
        play = False
     return play
-
 
 def Intro():
     print("Hello, my name is Eve")
@@ -50,18 +44,15 @@ def RandomSecretNum():
     MinNum= randint(0, MaxRange)
     MaxNum = randint(99 + MinNum, 100 + MaxRange )
     SecretNum = randint(MinNum, MaxNum )
-    #print(type(SecretNum))
-    print(SecretNum)
     print("I am thinking of a number between "+ str(MinNum) + " and " + str(MaxNum) + ", care to take a guess?")
     return SecretNum
-
 
 def Game(SecretNum):
     play = True
     win = False
     while play:
         NumTry = 0
-        MaxTry = 5
+        MaxTry = 10
 
         for NumTry in range(0,MaxTry):
             UserNum = input()  
@@ -76,14 +67,13 @@ def Game(SecretNum):
                 return
             else:
                 print("You had try " + str(NumTry) + " times")
-                
-                
+  
+def InGame():                
+    Game(RandomSecretNum())
 
-                     
 def main():
     Intro()
-    Game(RandomSecretNum())
+    InGame()
     
-
 main()
 
