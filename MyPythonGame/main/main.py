@@ -2,16 +2,16 @@
 
 from random import *
 
-def CompareValidGuess(SecretNum,val,win):
-     if val == SecretNum:
+def CompareValidGuess(SecretNum,UserNum,play):
+     if UserNum == SecretNum:
         print("You guessed correctly!")
-        win = True
-        print(win)
-        return win
-     if val < SecretNum:
+        play = True
+        print(play)
+        return play
+     if UserNum < SecretNum:
         print("It's more")
         return 
-     if val > SecretNum :
+     if UserNum > SecretNum :
         print("It's less")
         return 
      else:
@@ -53,20 +53,26 @@ def Game(SecretNum):
         NumTry = 0
         MaxTry = 10
         for NumTry in range(0,MaxTry):
-            UserNum = input()  
+            NumTry += 1
+            UserNum = input() 
+            print(type(UserNum))
+
             try:
                 val = int(UserNum)
             except ValueError:
                  print("That's not an number!")
                  print("No.. input string is not a int number. It's a string")
-            NumTry += 1
-            if  CompareValidGuess(SecretNum,val,win) == True:
+            UserNum =(int(UserNum))
+                   
+            if CompareValidGuess(SecretNum,UserNum,play) == True:
                 PlayAgain(play)
                 return
             else:
                 print("You had try " + str(NumTry) + " times")
-        print("You haven't sucess to guessed the number, Try again!")       #EXIT
-        return    
+        print("You haven't sucess to guessed the number, Try again!")
+        return                                                          #EXIT
+    PlayAgain()
+     
 
   
 def InGame():                
@@ -77,4 +83,3 @@ def main():
     InGame()
     
 main()
-
