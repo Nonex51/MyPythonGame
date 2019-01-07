@@ -33,6 +33,7 @@ def PlayAgain(play):
     return play
 
 def Intro():
+    print("Welcome in my First Game coding in Python")
     print("Hello, my name is Eve")
     print("What is your name ?")
     user_name = input()
