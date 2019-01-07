@@ -33,8 +33,8 @@ def PlayAgain(play):
     return play
 
 def Intro():
-    print("Welcome in my First Game coding in Python")
-    print("Hello, my name is Eve")
+    print("Welcome in my First Game coding in Python\n")
+    print("Hello, my name is Eve\n")
     print("What is your name ?")
     user_name = input()
     print("Hello "+ user_name)
@@ -84,6 +84,7 @@ def InGame():
 def main():
     Intro()
     InGame()
+
 
     
 main()
