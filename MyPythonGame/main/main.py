@@ -3,8 +3,6 @@
 from random import *
 import os
 
-
-
 def CompareValidGuess(SecretNum,UserNum,play):
      if UserNum == SecretNum:
         print("You guessed correctly!")
@@ -58,17 +56,13 @@ def Game(SecretNum):
         for NumTry in range(0,MaxTry):
             NumTry += 1
             UserNum = input() 
-            #print(type(UserNum))
-
             try:
                 val = int(UserNum)
             except ValueError:
                  print("That's not an number!")
                  print("No.. input string is not a int number. It's a string")
                  continue 
-
-            UserNum =(int(UserNum))
-                   
+            UserNum =(int(UserNum))       
             if CompareValidGuess(SecretNum,UserNum,play) == True:
                 PlayAgain(play)
                 return
@@ -84,6 +78,7 @@ def Clear():
 def InGame():
     Clear()
     Game(RandomSecretNum())
+
 
 def main():
     Intro()
