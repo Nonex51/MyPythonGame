@@ -2,19 +2,34 @@
 
 from random import *
 
-def CompareValidGuess():
-    return
+def CompareValidGuess(SecretNum,val,win):
+     if val == SecretNum:
+        print("You guessed correctly!")
+        win = True
+        print(win)
+        return win
+     if val < SecretNum:
+        print("It's more")
+        return 
+     if val > SecretNum :
+        print("It's less")
+        return 
+     else:
+        print("You guessed wrong, sorry!")
+        return
+    
+    
 
 def PlayAgain(play):
     again=str(input("Do you want to play again, put yes or no "))
     print(again)
     try:
        val = str(again)
-       print (val)
+       
     except ValueError:
         print("That's not response!")
         print("Write Yes or Y or yes or y")
-    print (val)
+    
 
     if again == "yes" or again =="YES" or again =="y" or again =="Y":         
        main()
@@ -28,6 +43,9 @@ def Intro():
     print("What is your name ?")
     user_name = input()
     print("Hello "+ user_name)
+    return user_name
+
+def RandomSecretNum():
     MaxRange = 20
     MinNum= randint(0, MaxRange)
     MaxNum = randint(99 + MinNum, 100 + MaxRange )
@@ -40,6 +58,7 @@ def Intro():
 
 def Game(SecretNum):
     play = True
+    win = False
     while play:
         NumTry = 0
         MaxTry = 5
@@ -51,23 +70,19 @@ def Game(SecretNum):
             except ValueError:
                  print("That's not an number!")
                  print("No.. input string is not a int number. It's a string")
-             
-            if val == SecretNum:
-                print("You guessed correctly!")
-                break
+            NumTry += 1
+            if  CompareValidGuess(SecretNum,val,win) == True:
+                PlayAgain(play)
+                return
             else:
-               #print(type(val))
-               print("You guessed wrong, sorry!")
-               NumTry += 1
-               CompareValidGuess()
-        print("    ")
-        print("You had try " + str(NumTry) + " times")
-        PlayAgain(play)
-        break
+                print("You had try " + str(NumTry) + " times")
+                
+                
 
                      
 def main():
-    Game(Intro())
+    Intro()
+    Game(RandomSecretNum())
     
 
 main()
