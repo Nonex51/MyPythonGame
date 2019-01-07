@@ -7,7 +7,6 @@ def CompareValidGuess(SecretNum,UserNum,play):
      if UserNum == SecretNum:
         print("You guessed correctly!")
         play = True
-        print(play)
         return play
      if UserNum < SecretNum:
         print("\n It's more")
@@ -16,7 +15,7 @@ def CompareValidGuess(SecretNum,UserNum,play):
         print("\n It's less")
         return 
      else:
-        print("You guessed wrong, sorry!")          
+        print("You guessed wrong, sorry!\n")          
         return    
 
 def PlayAgain(play):
@@ -55,7 +54,7 @@ def Game(SecretNum):
         MaxTry = 10
         for NumTry in range(0,MaxTry):
             NumTry += 1
-            UserNum = input() 
+            UserNum = input("Enter your number with the alphanumeric symbols : ") 
             try:
                 val = int(UserNum)
             except ValueError:
