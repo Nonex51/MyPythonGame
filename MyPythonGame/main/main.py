@@ -15,12 +15,11 @@ def CompareValidGuess(SecretNum,val,win):
         print("It's less")
         return 
      else:
-        print("You guessed wrong, sorry!")
+        print("You guessed wrong, sorry!")          #EXIT
         return    
 
 def PlayAgain(play):
     again=str(input("Do you want to play again, put yes or no "))
-    print(again)
     try:
        val = str(again)  
     except ValueError:
@@ -53,7 +52,6 @@ def Game(SecretNum):
     while play:
         NumTry = 0
         MaxTry = 10
-
         for NumTry in range(0,MaxTry):
             UserNum = input()  
             try:
@@ -67,6 +65,9 @@ def Game(SecretNum):
                 return
             else:
                 print("You had try " + str(NumTry) + " times")
+        print("You haven't sucess to guessed the number, Try again!")       #EXIT
+        return    
+
   
 def InGame():                
     Game(RandomSecretNum())
