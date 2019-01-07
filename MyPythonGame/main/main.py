@@ -1,6 +1,9 @@
 #MyPythonGame Project For RSG
 
 from random import *
+import os
+
+
 
 def CompareValidGuess(SecretNum,UserNum,play):
      if UserNum == SecretNum:
@@ -9,13 +12,13 @@ def CompareValidGuess(SecretNum,UserNum,play):
         print(play)
         return play
      if UserNum < SecretNum:
-        print("It's more")
+        print("\n It's more")
         return 
      if UserNum > SecretNum :
-        print("It's less")
+        print("\n It's less")
         return 
      else:
-        print("You guessed wrong, sorry!")          #EXIT
+        print("You guessed wrong, sorry!")          
         return    
 
 def PlayAgain(play):
@@ -55,13 +58,15 @@ def Game(SecretNum):
         for NumTry in range(0,MaxTry):
             NumTry += 1
             UserNum = input() 
-            print(type(UserNum))
+            #print(type(UserNum))
 
             try:
                 val = int(UserNum)
             except ValueError:
                  print("That's not an number!")
                  print("No.. input string is not a int number. It's a string")
+                 continue 
+
             UserNum =(int(UserNum))
                    
             if CompareValidGuess(SecretNum,UserNum,play) == True:
@@ -69,17 +74,20 @@ def Game(SecretNum):
                 return
             else:
                 print("You had try " + str(NumTry) + " times")
-        print("You haven't sucess to guessed the number, Try again!")
+        print("You haven't sucess to guessed the number, Try again!\n")
         return                                                          #EXIT
     PlayAgain()
-     
-
   
-def InGame():                
+def Clear():
+    os.system('cls')
+
+def InGame():
+    Clear()
     Game(RandomSecretNum())
 
 def main():
     Intro()
     InGame()
+
     
 main()
