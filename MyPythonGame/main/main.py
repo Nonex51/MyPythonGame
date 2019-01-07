@@ -1,8 +1,12 @@
 #MyPythonGame Project For RSG
 
 from random import *
+
+def CompareValidGuess():
+    return
+
 def PlayAgain(play):
-    again=str(input("Do you want to play again, type yes or no "))
+    again=str(input("Do you want to play again, put yes or no "))
     print(again)
     try:
        val = str(again)
@@ -28,7 +32,8 @@ def Intro():
     MinNum= randint(0, MaxRange)
     MaxNum = randint(99 + MinNum, 100 + MaxRange )
     SecretNum = randint(MinNum, MaxNum )
-
+    #print(type(SecretNum))
+    print(SecretNum)
     print("I am thinking of a number between "+ str(MinNum) + " and " + str(MaxNum) + ", care to take a guess?")
     return SecretNum
 
@@ -47,12 +52,14 @@ def Game(SecretNum):
                  print("That's not an number!")
                  print("No.. input string is not a int number. It's a string")
              
-            if UserNum == SecretNum:
+            if val == SecretNum:
                 print("You guessed correctly!")
                 break
             else:
+               #print(type(val))
                print("You guessed wrong, sorry!")
                NumTry += 1
+               CompareValidGuess()
         print("    ")
         print("You had try " + str(NumTry) + " times")
         PlayAgain(play)
